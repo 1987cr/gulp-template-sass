@@ -1,0 +1,9 @@
+body{
+	background-color: #00afff;
+}
+
+button{
+	position: absolute 50% 0 0 50%;
+	height: 50px;
+	transform: translate(-50%,-50%);
+}

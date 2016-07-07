@@ -11,12 +11,14 @@ var sourcemaps = require('gulp-sourcemaps');
 var plumber = require('gulp-plumber');
 var browserSync = require('browser-sync');
 var csscomb = require('gulp-csscomb');
+var cssbeautify = require('gulp-cssbeautify');
 var useref = require('gulp-useref');
 var uglify = require('gulp-uglify');
 var gulpIf = require('gulp-if');
 var del = require('del');
 var runSequence = require('run-sequence');
 var imagemin = require('gulp-imagemin');
+var mqpacker = require('css-mqpacker');
 var sass = require('gulp-sass');
 // PostCSS plugins
 var postcss = require('gulp-postcss');
@@ -48,7 +50,8 @@ var onError = function (err) {
 gulp.task('sass', function(){
 	var processors = [
 		rucksack,
-		autoprefixer
+		autoprefixer,
+		mqpacker
 	];
 
 	return gulp.src("./app/sass/**/*.scss")
@@ -57,6 +60,11 @@ gulp.task('sass', function(){
 	 	.pipe(sass().on('error', sass.logError))
 		.pipe(postcss(processors))
 		.pipe(csscomb())
+		.pipe(cssbeautify({
+            indent: '	',
+            openbrace: 'separate-line',
+            autosemicolon: true
+        }))
 		.pipe(sourcemaps.write())
 		.pipe(gulp.dest("./app/css/"))
 		.pipe(browserSync.reload({stream: true}))

@@ -1,0 +1,21 @@
+// General Media Queries
+$phone-width: 480px;
+$tablet-width: 768px;
+$medium-width: 992px;
+$desktop-width: 1200px;
+
+@mixin phone {
+  @media only screen and (max-width: $phone-width) { @content; }
+}
+
+@mixin tablet {
+  @media only screen and (max-width: $tablet-width) { @content; }
+}
+
+@mixin medium {
+  @media only screen and (max-width: $medium-width) { @content; }
+}
+
+@mixin desktop {
+  @media only screen and (max-width: $desktop-width) { @content; }
+}

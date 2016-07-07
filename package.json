@@ -1,5 +1,5 @@
 {
-  "name": "gulp-template",
+  "name": "gulp-template-sass",
   "version": "1.0.0",
   "description": "",
   "main": "gulpfile.js",
@@ -10,6 +10,7 @@
     "cssnano": "^3.5.2",
     "del": "^2.2.0",
     "gulp": "^3.9.1",
+    "gulp-cssbeautify": "^0.1.3",
     "gulp-csscomb": "^3.0.7",
     "gulp-if": "^2.0.0",
     "gulp-imagemin": "^3.0.1",
